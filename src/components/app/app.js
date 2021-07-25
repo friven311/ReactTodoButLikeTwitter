@@ -32,6 +32,7 @@ export default class App extends Component {
         this.onToggleLiked = this.onToggleLiked.bind(this);
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
         this.onFilterSelect = this.onFilterSelect.bind(this);
+        this.maxId = 4;
 
         
     }
@@ -51,7 +52,7 @@ export default class App extends Component {
         const newItem = {
             label: body,
             important: false,
-            id: id
+            id: this.maxId++
         }
         this.setState(({data}) => {
             const newArr = [...data, newItem];
@@ -72,7 +73,7 @@ export default class App extends Component {
             return {
                 data: newArr
             }
-        })
+        });
     }
 
     onToggleImportant(id) {
